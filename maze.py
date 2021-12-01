@@ -67,7 +67,6 @@ def solveMaze(maze, position):
     return movements
 
 maze = createMaze(coordinates, start, finish) 
-movements = solveMaze(maze, position)
 
 print(maze[0])
 print(maze[1])
@@ -75,4 +74,13 @@ print(maze[2])
 print(maze[3])
 print(maze[4])
 
-print("The maze has been finished with this list of movements:\n" + str(movements))
+movements = solveMaze(maze, position)
+
+print("\nThe solution of the maze has been marked with '-':\n")
+print(maze[0])
+print(maze[1])
+print(maze[2])
+print(maze[3])
+print(maze[4])
+
+print("\nThe maze has been finished with this list of movements:\n" + str(movements))
