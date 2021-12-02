@@ -41,57 +41,64 @@ def validPosition(x, y):
         return False
     return True
 
+def printMaze(maze):
+    print(maze[0])
+    print(maze[1])
+    print(maze[2])
+    print(maze[3])
+    print(maze[4])    
+
+def playerPosition(maze, position):
+    if validPosition(position[0], position[1]):
+        if maze[position[0]][position[1]] != "F":
+            maze[position[0]][position[1]] = "@"
+
+def oldPosition(maze, position):
+    if maze[position[0]][position[1]] != "S":
+        maze[position[0]][position[1]] = " "
+     
 def solveMaze(maze, position):
     movements = []
     while len(movements) >= 0:
-        if len(movements) > 0 and validPosition(position[0], position[1]):
-            print(maze[0])
-            print(maze[1])
-            print(maze[2])
-            print(maze[3])
-            print(maze[4])
-            
+        printMaze(maze)
         movement = input("Which way do you want to go?: ")
+        movement = movement.capitalize() 
 
         if movement == "Down":
             if validPosition(position[0] + 1, position[1]) == False:
                 print("There is a wall here! You can't go this way!")
             else:
                 movements.append("Down")
+                oldPosition(maze, position)
                 position = [position[0] + 1, position[1]]
-                maze = createMaze(coordinates, start, finish)
-                if maze[position[0]][position[1]] != "F":
-                    maze[position[0]][position[1]] = "@"
+                playerPosition(maze, position)
 
         if movement == "Up":
             if validPosition(position[0] - 1, position[1]) == False:
                 print("There is a wall here! You can't go this way!")
             else:
                 movements.append("Up")
+                oldPosition(maze, position)
                 position = [position[0] - 1, position[1]]
-                maze = createMaze(coordinates, start, finish)
-                if maze[position[0]][position[1]] != "F":
-                    maze[position[0]][position[1]] = "@"
-
+                playerPosition(maze, position)
+                
         if movement == "Right":
             if validPosition(position[0], position[1] + 1) == False:
                 print("There is a wall here! You can't go this way!")
             else:
                 movements.append("Right")
+                oldPosition(maze, position)
                 position = [position[0], position[1] + 1]
-                maze = createMaze(coordinates, start, finish)
-                if maze[position[0]][position[1]] != "F":
-                    maze[position[0]][position[1]] = "@"
+                playerPosition(maze, position)
 
         if movement == "Left":
-            if validPosition(position[0], position[1] + 1) == False:
+            if validPosition(position[0], position[1] - 1) == False:
                 print("There is a wall here! You can't go this way!")
             else: 
                 movements.append("Left")
+                oldPosition(maze, position)
                 position = [position[0], position[1] - 1]            
-                maze = createMaze(coordinates, start, finish)
-                if maze[position[0]][position[1]] != "F":
-                    maze[position[0]][position[1]] = "@"
+                playerPosition(maze, position)
 
         if maze[position[0]][position[1]] == "F":
             break
@@ -101,12 +108,7 @@ def solveMaze(maze, position):
 
 maze = createMaze(coordinates, start, finish)
 
-print("Welcome to The Maze! You have to reach the exit (marked with 'F') by moving your character (represented with '@').\nYou have the folowing movements available: Down, Up, Left or Right.\nYour starting point is the box 'S'. Good luck with solving the maze!\n")
-print(maze[0])
-print(maze[1])
-print(maze[2])
-print(maze[3])
-print(maze[4])
+print("\nWelcome to The Maze! You have to reach the exit (marked with 'F') by moving your character (represented with '@').\nYou have the folowing movements available: Down, Up, Left or Right.\nYour starting point is the box 'S'. Good luck with solving the maze!\n")
 
 movements = solveMaze(maze, position)
 
