@@ -12,6 +12,9 @@ El diagrama de flujo que tenemos en nuestro código es el siguiente:
 <img height="450" src="https://github.com/lauralardies/maze/blob/main/maze.jpg" />
 <br>
 
+Para ver mejor el diagrama de flujo haz click al siguiente enlace: [Figma](https://www.figma.com/file/1a3Izgqrr0HbehoJlgTgFZ/maze?node-id=0%3A1)
+https://www.figma.com/file/1a3Izgqrr0HbehoJlgTgFZ/maze?node-id=0%3A1
+
 ```
 coordinates = (
             (0,1), 
