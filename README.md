@@ -9,7 +9,7 @@ Hemos resuelto un programa para terminal en el cual el usuario resuelve un laber
 El diagrama de flujo que tenemos en nuestro código es el siguiente:
 
 <br>
-<img height="500" src="https://github.com/lauralardies/maze/blob/main/maze.jpg" />
+<img height="450" src="https://github.com/lauralardies/maze/blob/main/maze.jpg" />
 <br>
 
 ```
